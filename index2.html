@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="data">
+        <table>
+            <tr>
+                <th>Kode</th>
+                <th>Barang</th>
+                <th>Harga</th>
+            </tr>
+
+            <tr>
+                <td id="001">001</td>
+                <td>Barang A</td>
+                <td id="price1">10000</td>  
+            </tr>
+                   
+            <tr>
+                <td id="002">002</td>
+                <td>Barang B</td>
+                <td id="price2">20000</td>
+            </tr>
+                    
+            <tr>
+                <td id="003">003</td>
+                <td>Barang C</td>
+                <td id="price3">30000</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="mytable">
+        <h2>User Input</h2>
+        <table>
+            <tr>
+                <td>
+                    <label for="usercode">Kode:</label>
+                    <input type="text" id="usercode" placeholder="Masukkan Kode">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="userq">Banyaknya barang:</label>
+                    <input type="text" id="userq" placeholder="Banyaknya barang">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="button" id="total" onclick="calculation()" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+<script>
+    function calculation(){
+        let data1 = document.getElementById('usercode').value;
+        let data2 = parseInt(document.getElementById('userq').value);
+
+        if (data1 === '001'){
+            var price_d1 = parseFloat(document.getElementById('price1').textContent);
+            window.alert("Total Pembayaran " + (price_d1 * data2));
+            payment = parseFloat(window.prompt("Masukkan uang user : "));
+            window.alert("Total kembalian anda : " + (payment - (price_d1 * data2)));
+        }
+
+        else if (data1 === '002'){
+            var price_d2 = parseFloat(document.getElementById('price2').textContent);
+            window.alert("Total Pembayaran " + (price_d2 * data2));
+            payment = parseFloat(window.prompt("Masukkan uang user : ")); 
+            window.alert("Total kembalian anda : " + (payment - (price_d2 * data2)));
+        }
+
+        else if (data1 === '003'){
+            var price_d3 = parseFloat(document.getElementById('price3').textContent);
+            window.alert("Total Pembayaran " + (price_d3 * data2))
+            payment = parseFloat(window.prompt("Masukkan uang user : "));
+            window.alert("Total kembalian anda : " + (payment - (price_d3 * data2)));
+        }
+    }
+</script>
+</html>
