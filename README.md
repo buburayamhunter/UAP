@@ -14,7 +14,7 @@
 - **(opsional)** Lakukan visualisasi untuk mengecek hasil dari preprosesing dataset menggunakan file [visualize-preproc.ipynb](visualize-preproc.ipynb).
 - Melakukan ekstrasi fitur pada dataset yang telah melewati preprosesing dengan [feature_extraction.ipynb](feature_extraction.ipynb). Output dari ekstrasi fitur akan disimpan di folder [numpy_files](numpy_files).
 - Dilanjutkan untuk di *split* setiap fitur yang akan dipakai menggunakan [split_dataset.ipynb](split_dataset.ipynb). Hasil split akan di simpan dalam format numpy (.npz) pada folder [split_data](numpy_files/split_data) yang ada di folder [numpy_files](numpy_files). Selain itu hasil dari split juga akan disimpan dalam bentuk *image* pada folder [images-split-data](images-split-data).
-- Melakukan *train* dataset dengan algoritma SVM [svm_model.ipynb](svm_model.ipynb). Karena penggunaan SVM terbatas, maka hanya bisa melakukan klasifikasi kardus.
+- Melakukan *train* dataset dengan algoritma CNN [svm_model.ipynb](svm_model.ipynb). Karena penggunaan CNN terbatas, maka hanya bisa melakukan klasifikasi kardus.
 
 
 ## `Folder: `
