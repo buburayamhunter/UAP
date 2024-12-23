@@ -3,6 +3,12 @@
 ## Link dataset (Full)
 - [object_detection_cardboard](https://drive.google.com/drive/folders/1Tzz94XEyqiADfEdvweKMCBZbdsS6KG6h?usp=sharing)
 
+## Link CNN Model .h5
+- [object_detection_cardboard](https://drive.google.com/drive/folders/1Tzz94XEyqiADfEdvweKMCBZbdsS6KG6h?usp=sharing)
+
+## Link VGG Model .h5
+- [object_detection_cardboard](https://drive.google.com/drive/folders/1Tzz94XEyqiADfEdvweKMCBZbdsS6KG6h?usp=sharing)
+
 ## Alur pengerjaan
 - *split* setiap fitur yang akan dipakai menggunakan [split_dataset.ipynb](split_dataset.ipynb). Hasil split akan di simpan dalam format numpy (.npz) pada folder [split_data](numpy_files/split_data) yang ada di folder [numpy_files](numpy_files). Selain itu hasil dari split juga akan disimpan dalam bentuk *image* pada folder [images-split-data](images-split-data).
 - Melakukan *train* dataset dengan algoritma CNN [svm_model.ipynb](svm_model.ipynb). Karena penggunaan CNN terbatas, maka hanya bisa melakukan klasifikasi kardus.
