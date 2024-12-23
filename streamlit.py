@@ -14,23 +14,40 @@ st.markdown(
 # Sidebar untuk mengunggah file
 st.sidebar.title("Pengaturan")
 upload = st.sidebar.file_uploader(
-    'Unggah Citra Kardus',
+    'Unggah Citra Anjing Anda',
     type=['png', 'jpg', 'jpeg']
 )
 
 def predict(image_file):
     # Kategori kelas
-    class_names = ["Normal, Defect"]
+    class_names = ["Normal", "Defect"]
     
     # Preproses gambar
-    img = tf.keras.utils.load_img(image_file, target_size=(128, 128, 3))
+    img = tf.keras.utils.load_img(image_file, target_size=(300, 400, 3))
     img_array = tf.keras.utils.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)
 
     # Memuat model dan memprediksi
-    model = tf.keras.models.load_model("cnn_model.h5")
+    model = tf.keras.models.load_model("vgg_model.h5")
     output = model.predict(img_array)
-    score = tf.nn.softmax(output[0])
+    print(output)
+    score = tf.nn.softmax(output['class_output'][0])
+    return class_names[np.argmax(score)], np.max(score)
+
+def predict_cnn(image_file):
+    # Kategori kelas
+    class_names = ["Normal", "Defect"]
+    
+    # Preproses gambar
+    img = tf.keras.utils.load_img(image_file, target_size=(300, 400, 3))
+    img_array = tf.keras.utils.img_to_array(img)
+    img_array = tf.expand_dims(img_array, 0)
+
+    # Memuat model dan memprediksi
+    model = tf.keras.models.load_model("vgg_model.h5")
+    output = model.predict(img_array)
+    print(output)
+    score = tf.nn.softmax(output['class_output'][0])
     return class_names[np.argmax(score)], np.max(score)
 
 # Button untuk prediksi
@@ -42,8 +59,11 @@ if st.sidebar.button("Prediksi"):
         
         with st.spinner('Memproses prediksi, harap tunggu...'):
             try:
+                predicted_class, confidence = predict_cnn(upload)
+                st.success(f"Prediksi CNN : **{predicted_class}** dengan tingkat keyakinan {confidence:.2%}")
+
                 predicted_class, confidence = predict(upload)
-                st.success(f"Prediksi: **{predicted_class}** dengan tingkat keyakinan {confidence:.2%}")
+                st.success(f"Prediksi VGG : **{predicted_class}** dengan tingkat keyakinan {confidence:.2%}")
             except Exception as e:
                 st.error("Terjadi kesalahan saat memproses gambar. Pastikan file yang diunggah benar.")
                 st.error(str(e))
@@ -52,9 +72,10 @@ if st.sidebar.button("Prediksi"):
 
 # Menambahkan catatan di footer
 st.sidebar.markdown("---")
-st.sidebar.info("Aplikasi ini menggunakan model TensorFlow untuk mengklasifikasi citra anjing.")
+st.sidebar.info("Klasifikasi kerusakan kardus")
 st.sidebar.markdown(
     """
-    [GitHub Repository](https://github.com/buburayamhunter/UAP)
+    Repository : 
+    [GitHub](https://github.com/buburayamhunter/UAP)
     """
 )
