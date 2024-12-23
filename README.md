@@ -1,7 +1,7 @@
 # DETEKSI KERUSAKAN PADA KARDUS
 
 ## Link dataset (Full)
-- [object_detection_cardboard](https://drive.google.com/drive/folders/1Tzz94XEyqiADfEdvweKMCBZbdsS6KG6h?usp=sharing)
+- [object_detection_cardboard](https://drive.google.com/drive/folders/1A956Q7Hb-PFJSJ2MvkSp82RYv6t9fgEQ)
 
 ## Link CNN Model .h5
 - [object_detection_cardboard](https://drive.google.com/drive/folders/1Tzz94XEyqiADfEdvweKMCBZbdsS6KG6h?usp=sharing)
