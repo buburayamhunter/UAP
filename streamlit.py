@@ -44,7 +44,7 @@ def predict_cnn(image_file):
     img_array = tf.expand_dims(img_array, 0)
 
     # Memuat model dan memprediksi
-    model = tf.keras.models.load_model("vgg_model.h5")
+    model = tf.keras.models.load_model("cnn_model.h5")
     output = model.predict(img_array)
     print(output)
     score = tf.nn.softmax(output['class_output'][0])
